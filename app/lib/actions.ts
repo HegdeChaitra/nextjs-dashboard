@@ -20,28 +20,28 @@ const FormSchema = z.object({
 
 
 const CustFormSchema = z.object({
-  name: z.string().trim().min(1, { message: 'Please enter your name.' }),
-  email: z.string().email({ message: 'Please enter a valid email address.' }),
-  age: z.string().trim().optional(), // Assuming positive age
+  name: z.string().trim().default(""),
+  email: z.string().default(""),
+  age: z.string().trim().default(""), // Assuming positive age
 
-  occupation: z.string().trim().optional(), // Optional field
-  education: z.string().trim().optional(), // Optional field
-  location: z.string().trim().optional(), // Optional field
+  occupation: z.string().trim().default(""), // Optional field
+  education: z.string().trim().default(""), // Optional field
+  location: z.string().trim().default(""), // Optional field
 
   // Height (assuming feet and inches are separate)
-  feet: z.string().trim().optional(),
-  inches: z.string().trim().optional(),
+  feet: z.string().trim().default(""),
+  inches: z.string().trim().default(""),
 
-  politics: z.string().trim().optional(), // Optional field
-  religion: z.string().trim().optional(), // Optional field
+  politics: z.string().trim().default(""), // Optional field
+  religion: z.string().trim().default(""), // Optional field
 
-  maritalStatus: z.string().trim().optional(), // Optional field
+  maritalStatus: z.string().trim().default(""), // Optional field
 
   // Kids (assuming separate fields)
-  haveKids: z.enum(['yes', 'no']).optional(), // Optional field
-  wantKids: z.enum(['yes', 'no']).optional(), // Optional field
+  haveKids: z.string().default(""), // Optional field
+  wantKids: z.string().default(""), // Optional field
 
-  drugs: z.enum(['yes', 'no']).optional(), // Optional field
+  drugs: z.string().default(""), // Optional field
 });
 
 
