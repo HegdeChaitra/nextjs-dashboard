@@ -7,11 +7,11 @@ import { useFormState } from 'react-dom';
 
 
 export default function Form() {
-  const initialState = { message: null, errors: {} };
-  const [state, dispatch] = useFormState(createCustomer, initialState);
+//   const initialState = { message: null, errors: {} };
+//   const [state, dispatch] = useFormState(createCustomer, initialState);
 
   return (
-    <form action={dispatch} className="max-w-[400px] mx-auto">
+    <form action={createCustomer} className="max-w-[400px] mx-auto">
       {/* Customer Name */}
       <div className="mb-6">
         <label htmlFor="name" className="block text-sm font-medium mb-2">
