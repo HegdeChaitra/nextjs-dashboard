@@ -18,6 +18,33 @@ const FormSchema = z.object({
   date: z.string(),
 });
 
+
+const CustFormSchema = z.object({
+  name: z.string().trim().min(1, { message: 'Please enter your name.' }),
+  email: z.string().email({ message: 'Please enter a valid email address.' }),
+  age: z.string().trim().optional(), // Assuming positive age
+
+  occupation: z.string().trim().optional(), // Optional field
+  education: z.string().trim().optional(), // Optional field
+  location: z.string().trim().optional(), // Optional field
+
+  // Height (assuming feet and inches are separate)
+  feet: z.string().trim().optional(),
+  inches: z.string().trim().optional(),
+
+  politics: z.string().trim().optional(), // Optional field
+  religion: z.string().trim().optional(), // Optional field
+
+  maritalStatus: z.string().trim().optional(), // Optional field
+
+  // Kids (assuming separate fields)
+  haveKids: z.enum(['yes', 'no']).optional(), // Optional field
+  wantKids: z.enum(['yes', 'no']).optional(), // Optional field
+
+  drugs: z.enum(['yes', 'no']).optional(), // Optional field
+});
+
+
 export type State = {
   errors?: {
     customerId?: string[];
@@ -29,28 +56,37 @@ export type State = {
 
 const CreateInvoice = FormSchema.omit({ id: true, date: true });
 const UpdateInvoice = FormSchema.omit({ id: true, date: true });
+const CreateUser = CustFormSchema.omit({});
 
 
 export async function createCustomer(prevState: string | undefined, formData: FormData) {
 
   console.log('form data');
   console.log(formData);
-  const name = formData.get('name');
-  const email = formData.get('email');
-  const age = formData.get('age');
+  const validatedFields = CreateInvoice.safeParse({
+      name : formData.get('name'),
+      email : formData.get('email'),
+      age : formData.get('age'),
+      occupation : formData.get('occupation'),
+      education : formData.get('education'),
+      location : formData.get('location'),
+      feet : formData.get('feet'),
+      inches : formData.get('inches'),
+      politics : formData.get('politics'),
+      religion : formData.get('religion'),
+      maritalStatus : formData.get('maritalStatus'),
+      haveKids : formData.get('haveKids'),
+      wantKids : formData.get('wantKids'),
+      drugs : formData.get('drugs'),
+  });
 
-  const occupation = formData.get('occupation');
-  const education = formData.get('education');
-  const location = formData.get('location');
-  const feet = formData.get('feet');
-  const inches = formData.get('inches');
-
-  const politics = formData.get('politics');
-  const religion = formData.get('religion');
-  const maritalstatus = formData.get('maritalStatus');
-  const havekids = formData.get('haveKids');
-  const wantkids = formData.get('wantKids');
-  const drugs = formData.get('drugs');
+  if (!validatedFields.success) {
+    return {
+      errors: validatedFields.error.flatten().fieldErrors,
+      message: 'Missing Fields. Failed to Create Invoice.',
+    };
+  }
+  const { name, email, age, occupation, education, location, feet, inches, politics, religion, maritalStatus, haveKids, wantKids, drugs } = validatedFields.data;
 
   try{
       await sql`
