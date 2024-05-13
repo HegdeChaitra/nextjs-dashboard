@@ -91,7 +91,7 @@ export async function createCustomer(prevState: string | undefined, formData: Fo
   try{
       await sql`
         INSERT INTO Customer (name, email, age, occupation, education, location, height_feet, height_inches, politics, religion, marital_status, have_kids, want_kids, drugs)
-        VALUES (${name}, ${email}, ${age}, ${occupation}, ${education}, ${location}, ${feet}, ${inches}, ${politics}, ${religion}, ${maritalstatus}, ${havekids}, ${wantkids}, ${drugs})
+        VALUES (${name}, ${email}, ${age}, ${occupation}, ${education}, ${location}, ${feet}, ${inches}, ${politics}, ${religion}, ${maritalStatus}, ${haveKids}, ${wantKids}, ${drugs})
       `;
   } catch (error) {
       return {
