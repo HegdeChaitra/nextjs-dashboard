@@ -38,7 +38,15 @@ export async function createCustomer(prevState: State, formData: FormData) {
   const name = formData.get('name');
   const email = formData.get('email');
 //   const age = parseInt(formData.get('age'));
-  const age = formData.get('age') !== null ? parseInt(formData.get('age')) : null;
+//   const age = formData.get('age') !== null ? parseInt(formData.get('age')) : null;
+
+  const age = formData.get('age');
+  if (age === null) {
+//     throw new Error('Age is a required field');
+    age=0
+  }
+
+  const parsedAge = parseInt(age);
 
   const occupation = formData.get('occupation');
   const education = formData.get('education');
