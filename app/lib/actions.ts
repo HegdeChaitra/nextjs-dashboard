@@ -43,13 +43,10 @@ export async function createCustomer(prevState: State, formData: FormData) {
   const occupation = formData.get('occupation');
   const education = formData.get('education');
   const location = formData.get('location');
-  const feet = parseInt(formData.get('feet'));
-  const inches = parseInt(formData.get('inches'));
-//   const feetValue = formData.get('feet');
-//   const feet = feetValue != null ? parseInt(feetValue) : null;
-//
-//   const inchesValue = formData.get('inches');
-//   const inches = inchesValue != null ? parseInt(inchesValue) : null;
+//   const feet = parseInt(formData.get('feet'));
+//   const inches = parseInt(formData.get('inches'));
+  const feet = formData.get('feet') !== null ? parseInt(formData.get('feet')) : null;
+  const inches = formData.get('inches') !== null ? parseInt(formData.get('inches')) : null;
 
   const politics = formData.get('politics');
   const religion = formData.get('religion');
