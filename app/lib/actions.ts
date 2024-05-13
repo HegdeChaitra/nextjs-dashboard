@@ -37,23 +37,13 @@ export async function createCustomer(prevState: State, formData: FormData) {
   console.log(formData);
   const name = formData.get('name');
   const email = formData.get('email');
-//   const age = parseInt(formData.get('age'));
-//   const age = formData.get('age') !== null ? parseInt(formData.get('age')) : null;
-
-  let age = formData.get('age');
-  if (age === null) {
-    age=0;
-  }
-
-  const parsedAge = parseInt(age);
+  const age = formData.get('age');
 
   const occupation = formData.get('occupation');
   const education = formData.get('education');
   const location = formData.get('location');
-//   const feet = parseInt(formData.get('feet'));
-//   const inches = parseInt(formData.get('inches'));
-  const feet = formData.get('feet') !== null ? parseInt(formData.get('feet')) : null;
-  const inches = formData.get('inches') !== null ? parseInt(formData.get('inches')) : null;
+  const feet = formData.get('feet');
+  const inches = formData.get('inches');
 
   const politics = formData.get('politics');
   const religion = formData.get('religion');
