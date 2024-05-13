@@ -47,15 +47,15 @@ export async function createCustomer(prevState: State, formData: FormData) {
 
   const politics = formData.get('politics');
   const religion = formData.get('religion');
-  const maritalStatus = formData.get('maritalStatus');
-  const haveKids = formData.get('haveKids');
-  const wantKids = formData.get('wantKids');
+  const maritalstatus = formData.get('maritalStatus');
+  const havekids = formData.get('haveKids');
+  const wantkids = formData.get('wantKids');
   const drugs = formData.get('drugs');
 
   try{
       await sql`
         INSERT INTO Customer (name, email, age, occupation, education, location, height_feet, height_inches, politics, religion, marital_status, have_kids, want_kids, drugs)
-        VALUES (${name}, ${email}, ${age}, ${occupation}, ${education}, ${location}, ${feet}, ${inches}, ${politics}, ${religion}, ${maritalStatus}, ${haveKids}, ${wantKids}, ${drugs})
+        VALUES (${name}, ${email}, ${age}, ${occupation}, ${education}, ${location}, ${feet}, ${inches}, ${politics}, ${religion}, ${maritalstatus}, ${havekids}, ${wantkids}, ${drugs})
       `;
   } catch (error) {
       return {
