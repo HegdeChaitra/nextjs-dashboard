@@ -310,7 +310,7 @@ export default function Form() {
       {/* Education & Occupation */}
       <div className="mb-6">
         <label htmlFor="occupation" className="block text-sm font-medium mb-2">
-          Education & Occupation
+          Education and Occupation
         </label>
         <div className="grid grid-cols-2 gap-4">
           <input
