@@ -50,6 +50,7 @@ export default function Form() {
           name="age"
           type="number"
           placeholder="Age"
+          defaultValue="25"
           className="peer rounded-md border border-gray-200 py-2 px-4 text-sm w-full outline-none placeholder-gray-500"
         />
       </div>
@@ -102,7 +103,7 @@ export default function Form() {
               id="feet"
               name="feet"
               className="rounded-l-md border border-gray-200 py-2 px-4 text-sm outline-none placeholder-gray-500"
-              defaultValue=""
+              defaultValue="5"
             >
               <option value="" disabled>Feet</option>
               {/* Add options for feet */}
@@ -116,7 +117,7 @@ export default function Form() {
               id="inches"
               name="inches"
               className="rounded-r-md border border-gray-200 py-2 px-4 text-sm outline-none placeholder-gray-500"
-              defaultValue=""
+              defaultValue="5"
             >
               <option value="" disabled>Inches</option>
               {/* Add options for inches */}
