@@ -35,20 +35,20 @@ export async function createCustomer(prevState: State, formData: FormData) {
 
   console.log('form data');
   console.log(formData);
-  const name = formData.get("name");
-  const email = formData.get("email");
-  const age = parseInt(formData.get("age"));
-  const occupation = formData.get("occupation");
-  const education = formData.get("education");
-  const location = formData.get("location");
-  const feet = parseInt(formData.get("feet"));
-  const inches = parseInt(formData.get("inches"));
-  const politics = formData.get("politics");
-  const religion = formData.get("religion");
-  const maritalStatus = formData.get("maritalStatus");
-  const haveKids = formData.get("haveKids");
-  const wantKids = formData.get("wantKids");
-  const drugs = formData.get("drugs");
+  const name = formData.get('name');
+  const email = formData.get('email');
+  const age = parseInt(formData.get('age'));
+  const occupation = formData.get('occupation');
+  const education = formData.get('education');
+  const location = formData.get('location');
+  const feet = parseInt(formData.get('feet'));
+  const inches = parseInt(formData.get('inches'));
+  const politics = formData.get('politics');
+  const religion = formData.get('religion');
+  const maritalStatus = formData.get('maritalStatus');
+  const haveKids = formData.get('haveKids');
+  const wantKids = formData.get('wantKids');
+  const drugs = formData.get('drugs');
 
   try{
       await sql`
