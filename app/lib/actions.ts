@@ -31,7 +31,7 @@ const CreateInvoice = FormSchema.omit({ id: true, date: true });
 const UpdateInvoice = FormSchema.omit({ id: true, date: true });
 
 
-export async function createCustomer(prevState: State, formData: FormData) {
+export async function createCustomer(prevState: string | undefined, formData: FormData) {
 
   console.log('form data');
   console.log(formData);
