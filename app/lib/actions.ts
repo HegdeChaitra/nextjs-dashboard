@@ -63,7 +63,7 @@ export async function createCustomer(prevState: string | undefined, formData: Fo
 
   console.log('form data');
   console.log(formData);
-  const validatedFields = CreateInvoice.safeParse({
+  const validatedFields = CreateUser.safeParse({
       name : formData.get('name'),
       email : formData.get('email'),
       age : formData.get('age'),
