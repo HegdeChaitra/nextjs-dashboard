@@ -106,9 +106,9 @@ export default function Form() {
             >
               <option value="" disabled>Feet</option>
               {/* Add options for feet */}
-              <option value="4">4'</option>
-              <option value="5">5'</option>
-              <option value="6">6'</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
               {/* Add more options as needed */}
             </select>
             {/* Inches */}
@@ -120,9 +120,9 @@ export default function Form() {
             >
               <option value="" disabled>Inches</option>
               {/* Add options for inches */}
-              <option value="0">0''</option>
-              <option value="1">1''</option>
-              <option value="2">2''</option>
+              <option value="0">0</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
               {/* Add more options as needed */}
             </select>
           </div>
