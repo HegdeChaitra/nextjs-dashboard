@@ -56,14 +56,14 @@ export type State = {
 
 const CreateInvoice = FormSchema.omit({ id: true, date: true });
 const UpdateInvoice = FormSchema.omit({ id: true, date: true });
-const CreateUser = CustFormSchema.omit({});
+const createCustomer = CustFormSchema.omit({});
 
 
 export async function createCustomer(prevState: string | undefined, formData: FormData) {
 
   console.log('form data');
   console.log(formData);
-  const validatedFields = CreateUser.safeParse({
+  const validatedFields = createCustomer.safeParse({
       name : formData.get('name'),
       email : formData.get('email'),
       age : formData.get('age'),
