@@ -37,10 +37,8 @@ export async function createCustomer(prevState: State, formData: FormData) {
   console.log(formData);
   const name = formData.get('name');
   const email = formData.get('email');
-  const age = parseInt(formData.get('age'));
-//   const ageValue = formData.get('age');
-//   console.log('ageValue:', ageValue);
-//   const age = ageValue != null ? parseInt(ageValue) : null;
+//   const age = parseInt(formData.get('age'));
+  const age = formData.get('age') !== null ? parseInt(formData.get('age')) : null;
 
   const occupation = formData.get('occupation');
   const education = formData.get('education');
