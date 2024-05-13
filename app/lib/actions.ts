@@ -30,6 +30,42 @@ export type State = {
 const CreateInvoice = FormSchema.omit({ id: true, date: true });
 const UpdateInvoice = FormSchema.omit({ id: true, date: true });
 
+
+export async function createCustomer(prevState: State, formData: FormData) {
+
+  console.log('form data');
+  console.log(formData);
+  const name = formData.get("name");
+  const email = formData.get("email");
+  const age = parseInt(formData.get("age"));
+  const occupation = formData.get("occupation");
+  const education = formData.get("education");
+  const location = formData.get("location");
+  const feet = parseInt(formData.get("feet"));
+  const inches = parseInt(formData.get("inches"));
+  const politics = formData.get("politics");
+  const religion = formData.get("religion");
+  const maritalStatus = formData.get("maritalStatus");
+  const haveKids = formData.get("haveKids");
+  const wantKids = formData.get("wantKids");
+  const drugs = formData.get("drugs");
+
+  try{
+      await sql`
+        INSERT INTO Customer (name, email, age, occupation, education, location, height_feet, height_inches, politics, religion, marital_status, have_kids, want_kids, drugs)
+        VALUES (${name}, ${email}, ${age}, ${occupation}, ${education}, ${location}, ${feet}, ${inches}, ${politics}, ${religion}, ${maritalStatus}, ${haveKids}, ${wantKids}, ${drugs})
+      `;
+  } catch (error) {
+      return {
+        message: 'Database Error: Failed to create customer',
+      };
+  }
+
+  revalidatePath('/dashboard');
+  redirect('/dashboard');
+}
+
+
 export async function createInvoice(prevState: State, formData: FormData) {
   const validatedFields = CreateInvoice.safeParse({
     customerId: formData.get('customerId'),
