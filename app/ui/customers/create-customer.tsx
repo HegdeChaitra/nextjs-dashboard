@@ -54,7 +54,7 @@ export default function Form() {
         />
       </div>
 
-      {/* Education & Occupation */}
+      {/* Education Occupation */}
       <div className="mb-6">
         <label htmlFor="occupation" className="block text-sm font-medium mb-2">
           Education and Occupation
