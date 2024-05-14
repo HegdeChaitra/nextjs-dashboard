@@ -7,6 +7,7 @@ import {
   LatestInvoiceRaw,
   User,
   Revenue,
+  Profile,
 } from './definitions';
 import { formatCurrency } from './utils';
 import { unstable_noStore as noStore } from 'next/cache';
@@ -54,6 +55,38 @@ export async function fetchLatestInvoices() {
     throw new Error('Failed to fetch the latest invoices.');
   }
 }
+
+
+export async function fetchCustomer() {
+  const query = "Chaitra2";
+  try {
+    const data = await sql<Profile>`
+      SELECT
+        name,
+        email,
+        age,
+        occupation,
+        education,
+        location,
+        height_feet,
+        height_inches,
+        politics,
+        religion,
+        marital_status,
+        have_kids,
+        want_kids,
+        drugs
+      FROM customer
+      WHERE customer.name ILIKE ${`%${query}%`}`;
+
+    const customers = data.rows;
+    return customers[0];
+  } catch (err) {
+    console.error('Database Error:', err);
+    throw new Error('Failed to fetch all customers.');
+  }
+}
+
 
 export async function fetchCardData() {
   noStore();

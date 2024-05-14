@@ -2,6 +2,45 @@
 // It describes the shape of the data, and what data type each property should accept.
 // For simplicity of teaching, we're manually defining these types.
 // However, these types are generated automatically if you're using an ORM such as Prisma.
+//     name,
+//     email,
+//     age,
+//     occupation,
+//     education,
+//     location,
+//     height_feet,
+//     height_inches,
+//     politics,
+//     religion,
+//     marital_status,
+//     have_kids,
+//     want_kids,
+//     drugs
+
+
+// export type Profile = {
+//   name: string;
+// };
+
+
+export type Profile = {
+//   id: number;
+  name: string;
+  email: string;
+  age: string;
+  occupation: string;
+  education: string;
+  location: string;
+  height_feet: string;
+  height_inches: string;
+  politics: string;
+  religion: string;
+  marital_status: string;
+  have_kids: string;
+  want_kids: string;
+  drugs: string;
+};
+
 export type User = {
   id: string;
   name: string;
