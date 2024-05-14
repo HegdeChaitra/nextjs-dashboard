@@ -99,10 +99,10 @@ export async function createCustomer(formData: FormData) {
       };
   }
 
-//   revalidatePath('/dashboard/customers/show');
-//   redirect('/dashboard/customers/show');
-  revalidatePath('/dashboard');
-  redirect('/dashboard');
+  revalidatePath('/dashboard/customers/show');
+  redirect('/dashboard/customers/show');
+//   revalidatePath('/dashboard');
+//   redirect('/dashboard');
 }
 
 
