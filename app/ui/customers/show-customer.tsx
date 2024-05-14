@@ -23,7 +23,7 @@ export default function Customer({
           <p><strong>Height:</strong> {customer.height_feet} feet {customer.height_inches} inches</p>
         </div>
         <div>
-          <h2 className="text-xl font-semibold">Occupation & Education</h2>
+          <h2 className="text-xl font-semibold">Occupation and Education</h2>
           <p><strong>Occupation:</strong> {customer.occupation}</p>
           <p><strong>Education:</strong> {customer.education}</p>
         </div>
