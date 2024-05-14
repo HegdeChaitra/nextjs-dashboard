@@ -20,7 +20,7 @@ export default function Customer({
           <p><strong>Email:</strong> {customer.email}</p>
           <p><strong>Age:</strong> {customer.age}</p>
           <p><strong>Location:</strong> {customer.location}</p>
-          <p><strong>Height:</strong> {customer.feet} feet {customer.inches} inches</p>
+          <p><strong>Height:</strong> {customer.height_feet} feet {customer.height_inches} inches</p>
         </div>
         <div>
           <h2 className="text-xl font-semibold">Occupation & Education</h2>
