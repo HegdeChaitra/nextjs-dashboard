@@ -95,8 +95,8 @@ export async function createCustomer(formData: FormData) {
       drugs : formData.get('drugs'),
   });
 
-  console.log('form dataw');
-  console.log(validatedFields.data)
+//   console.log('form dataw');
+//   console.log(validatedFields.data)
 
   if (!validatedFields.success) {
     return {
@@ -105,8 +105,8 @@ export async function createCustomer(formData: FormData) {
     };
   }
   const { first_name, last_name, email, phone, age, company_name, position, education_level, school, income_level, city, state, feet, inches, politics, religion, maritalStatus, haveKids, wantKids, drugs } = validatedFields.data;
-  console.log('form data');
-  console.log(validatedFields.data)
+//   console.log('form data');
+//   console.log(validatedFields.data)
 
   try{
       await sql`
