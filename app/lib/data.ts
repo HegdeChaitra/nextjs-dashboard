@@ -58,16 +58,22 @@ export async function fetchLatestInvoices() {
 
 
 export async function fetchCustomer() {
-  const query = "Chaitra2";
+  const query = "Chaitra";
   try {
     const data = await sql<Profile>`
       SELECT
-        name,
+        first_name,
+        last_name,
         email,
+        phone,
         age,
-        occupation,
-        education,
-        location,
+        company_name,
+        position,
+        education_level,
+        school,
+        income_level,
+        city,
+        state,
         height_feet,
         height_inches,
         politics,
@@ -77,7 +83,7 @@ export async function fetchCustomer() {
         want_kids,
         drugs
       FROM person
-      WHERE person.name ILIKE ${`%${query}%`}`;
+      WHERE person.first_name ILIKE ${`%${query}%`}`;
 
     const customers = data.rows;
     return customers[0];

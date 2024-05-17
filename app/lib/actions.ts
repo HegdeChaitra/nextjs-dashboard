@@ -20,13 +20,21 @@ const FormSchema = z.object({
 
 
 const CustFormSchema = z.object({
-  name: z.string().trim().default(""),
+  first_name: z.string().trim().default(""),
+  last_name: z.string(),
   email: z.string().default(""),
+  phone: z.string(),
   age: z.coerce.number(),
 
-  occupation: z.string().trim().default(""), // Optional field
-  education: z.string().trim().default(""), // Optional field
-  location: z.string().trim().default(""), // Optional field
+  company_name: z.string().trim().default(""), // Optional field
+  position: z.string(),
+
+  education_level: z.string().trim().default(""), // Optional field
+  school: z.string(),
+  income_level: z.string(),
+//   location: z.string().trim().default(""), // Optional field
+  city: z.string(),
+  state: z.string(),
 
   // Height (assuming feet and inches are separate)
   feet: z.coerce.number(),
@@ -61,15 +69,22 @@ const CreateCustomer = CustFormSchema.omit({});
 
 export async function createCustomer(formData: FormData) {
 
-//   console.log('form data');
-//   console.log(formData);
+  console.log('form data');
+  console.log(formData);
   const validatedFields = CreateCustomer.safeParse({
-      name : formData.get('name'),
+      first_name : formData.get('first_name'),
+      last_name: formData.get('last_name'),
       email : formData.get('email'),
+      phone: formData.get('phone'),
       age : formData.get('age'),
-      occupation : formData.get('occupation'),
-      education : formData.get('education'),
-      location : formData.get('location'),
+      company_name : formData.get('company_name'),
+      position: formData.get('position'),
+      education_level : formData.get('education_level'),
+      school: formData.get('school'),
+      income_level: formData.get('income_level'),
+//       location : formData.get('location'),
+      city: formData.get('city'),
+      state: formData.get('state'),
       feet : formData.get('feet'),
       inches : formData.get('inches'),
       politics : formData.get('politics'),
@@ -89,14 +104,14 @@ export async function createCustomer(formData: FormData) {
       message: 'Missing Fields. Failed to Create Invoice.',
     };
   }
-  const { name, email, age, occupation, education, location, feet, inches, politics, religion, maritalStatus, haveKids, wantKids, drugs } = validatedFields.data;
+  const { first_name, last_name, email, phone, age, company_name, position, education_level, school, income_level, city, state, feet, inches, politics, religion, maritalStatus, haveKids, wantKids, drugs } = validatedFields.data;
   console.log('form data');
   console.log(validatedFields.data)
 
   try{
       await sql`
-        INSERT INTO person (name, email, age, occupation, education, location, height_feet, height_inches, politics, religion, marital_status, have_kids, want_kids, drugs)
-        VALUES (${name}, ${email}, ${age}, ${occupation}, ${education}, ${location}, ${feet}, ${inches}, ${politics}, ${religion}, ${maritalStatus}, ${haveKids}, ${wantKids}, ${drugs})
+        INSERT INTO person (first_name, last_name, email, phone, age, company_name, position, education_level, school, income_level, city, state, height_feet, height_inches, politics, religion, marital_status, have_kids, want_kids, drugs)
+        VALUES (${first_name}, ${last_name}, ${email}, ${phone}, ${age}, ${company_name}, ${position}, ${education_level}, ${school}, ${income_level}, ${city}, ${state}, ${feet}, ${inches}, ${politics}, ${religion}, ${maritalStatus}, ${haveKids}, ${wantKids}, ${drugs})
       `;
   } catch (error) {
       return {

@@ -25,14 +25,20 @@
 
 export type Profile = {
 //   id: number;
-  name: string;
+  first_name: string;
+  last_name: string;
   email: string;
-  age: string;
-  occupation: string;
-  education: string;
-  location: string;
-  height_feet: string;
-  height_inches: string;
+  phone: string;
+  age: number;
+  company_name: string;
+  position: string;
+  education_level: string;
+  school: string;
+  income_level: string;
+  city: string,
+  state: string,
+  height_feet: number;
+  height_inches: number;
   politics: string;
   religion: string;
   marital_status: string;
