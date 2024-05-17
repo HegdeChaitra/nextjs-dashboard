@@ -22,15 +22,15 @@ const FormSchema = z.object({
 const CustFormSchema = z.object({
   name: z.string().trim().default(""),
   email: z.string().default(""),
-  age: z.string().trim().default(""), // Assuming positive age
+  age: z.coerce.number(),
 
   occupation: z.string().trim().default(""), // Optional field
   education: z.string().trim().default(""), // Optional field
   location: z.string().trim().default(""), // Optional field
 
   // Height (assuming feet and inches are separate)
-  feet: z.string().trim().default(""),
-  inches: z.string().trim().default(""),
+  feet: z.coerce.number(),
+  inches: z.coerce.number(),
 
   politics: z.string().trim().default(""), // Optional field
   religion: z.string().trim().default(""), // Optional field
@@ -61,8 +61,8 @@ const CreateCustomer = CustFormSchema.omit({});
 
 export async function createCustomer(formData: FormData) {
 
-  console.log('form data');
-  console.log(formData);
+//   console.log('form data');
+//   console.log(formData);
   const validatedFields = CreateCustomer.safeParse({
       name : formData.get('name'),
       email : formData.get('email'),
@@ -80,6 +80,9 @@ export async function createCustomer(formData: FormData) {
       drugs : formData.get('drugs'),
   });
 
+  console.log('form dataw');
+  console.log(validatedFields.data)
+
   if (!validatedFields.success) {
     return {
       errors: validatedFields.error.flatten().fieldErrors,
@@ -87,10 +90,12 @@ export async function createCustomer(formData: FormData) {
     };
   }
   const { name, email, age, occupation, education, location, feet, inches, politics, religion, maritalStatus, haveKids, wantKids, drugs } = validatedFields.data;
+  console.log('form data');
+  console.log(validatedFields.data)
 
   try{
       await sql`
-        INSERT INTO Customer (name, email, age, occupation, education, location, height_feet, height_inches, politics, religion, marital_status, have_kids, want_kids, drugs)
+        INSERT INTO person (name, email, age, occupation, education, location, height_feet, height_inches, politics, religion, marital_status, have_kids, want_kids, drugs)
         VALUES (${name}, ${email}, ${age}, ${occupation}, ${education}, ${location}, ${feet}, ${inches}, ${politics}, ${religion}, ${maritalStatus}, ${haveKids}, ${wantKids}, ${drugs})
       `;
   } catch (error) {

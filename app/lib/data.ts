@@ -76,8 +76,8 @@ export async function fetchCustomer() {
         have_kids,
         want_kids,
         drugs
-      FROM customer
-      WHERE customer.name ILIKE ${`%${query}%`}`;
+      FROM person
+      WHERE person.name ILIKE ${`%${query}%`}`;
 
     const customers = data.rows;
     return customers[0];
