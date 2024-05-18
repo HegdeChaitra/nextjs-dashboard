@@ -19,6 +19,9 @@ export default function Customer({ customer }: { customer: Profile }) {
           <p className="flex items-center mb-2"><strong>City:</strong> {customer.city}</p>
           <p className="flex items-center mb-2"><strong>State:</strong> {customer.state}</p>
           <p className="flex items-center mb-2"><strong>Height:</strong> {customer.height_feet} feet {customer.height_inches} inches</p>
+          <p className="flex items-center mb-2"><strong>Gender:</strong> {customer.gender}</p>
+          <p className="flex items-center mb-2"><strong>Dating Interest:</strong> {customer.dating_interest}</p>
+          <p className="flex items-center mb-2"><strong>Ethnicity:</strong> {customer.ethnicity}</p>
         </div>
         <div className="bg-green-50 p-6 rounded-lg shadow-md">
           <h2 className="text-2xl font-bold mb-4 text-green-800">Occupation and Education</h2>
@@ -40,6 +43,9 @@ export default function Customer({ customer }: { customer: Profile }) {
         <div className="bg-red-50 p-6 rounded-lg shadow-md">
           <h2 className="text-2xl font-bold mb-4 text-red-800">Other</h2>
           <p className="flex items-center mb-2"><strong>Drugs:</strong> {customer.drugs}</p>
+          <p className="flex items-center mb-2"><strong>Alcohol:</strong> {customer.alcohol}</p>
+          <p className="flex items-center mb-2"><strong>Smoking:</strong> {customer.smoking}</p>
+
         </div>
       </div>
     </div>

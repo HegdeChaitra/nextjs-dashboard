@@ -3,7 +3,10 @@
 import { CustomerField } from '@/app/lib/definitions';
 import { Button } from '@/app/ui/button';
 import { createCustomer } from '@/app/lib/actions';
-import { FaUser, FaEnvelope, FaPhone, FaBuilding, FaGraduationCap, FaMoneyBillWave, FaCity, FaMapMarkerAlt, FaBirthdayCake, FaChild, FaHeart, FaCross, FaPills, FaVenusMars } from 'react-icons/fa';
+import { FaUser, FaGlobe, FaDog, FaCat, FaEnvelope, FaSmoking, FaPhone, FaBuilding, FaGraduationCap, FaMoneyBillWave, FaCity, FaMapMarkerAlt, FaBirthdayCake, FaChild, FaHeart, FaCross, FaPills, FaVenusMars } from 'react-icons/fa';
+import { BiSolidDrink } from "react-icons/bi";
+import { MdPets } from "react-icons/md";
+
 
 export default function Form() {
   return (
@@ -56,8 +59,9 @@ export default function Form() {
         </div>
       </div>
 
-      {/* Age */}
-      <div className="mb-6">
+    {/* Age and Gender */}
+    <div className="mb-6 flex items-center">
+      <div className="w-1/2 pr-2">
         <label htmlFor="age" className="block text-sm font-medium mb-2 text-gray-600">
           <FaBirthdayCake className="inline-block mr-2 text-gray-400" />Age
         </label>
@@ -70,6 +74,62 @@ export default function Form() {
           className="peer rounded-md border border-gray-300 py-2 px-4 text-sm w-full outline-none placeholder-gray-500"
         />
       </div>
+
+      <div className="w-1/2 pl-2">
+        <label htmlFor="gender" className="block text-sm font-medium mb-2 text-gray-600">
+          <FaVenusMars className="inline-block mr-2 text-gray-400" />Gender
+        </label>
+        <select
+          id="gender"
+          name="gender"
+          className="rounded-md border border-gray-300 py-2 px-4 text-sm w-full outline-none placeholder-gray-500"
+          defaultValue=""
+        >
+          <option value="" disabled>Select Gender</option>
+          <option value="female">Female</option>
+          <option value="male">Male</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+    </div>
+
+      {/* Dating Interest */}
+      <div className="mb-6">
+        <label htmlFor="dating-interest" className="block text-sm font-medium mb-2 text-gray-600">
+          <FaHeart className="inline-block mr-2 text-red-400" />Dating Interest in
+        </label>
+        <select
+          id="dating-interest"
+          name="dating_interest"
+          className="rounded-md border border-gray-300 py-2 px-4 text-sm w-full outline-none placeholder-gray-500"
+          defaultValue=""
+        >
+          <option value="" disabled>Select Dating Interest</option>
+          <option value="men">Men</option>
+          <option value="women">Women</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+
+    {/* Ethnicity */}
+    <div className="mb-6">
+      <label htmlFor="ethnicity" className="block text-sm font-medium mb-2 text-gray-600">
+        <FaGlobe className="inline-block mr-2 text-gray-400" />Ethnicity
+      </label>
+      <select
+        id="ethnicity"
+        name="ethnicity"
+        className="rounded-md border border-gray-300 py-2 px-4 text-sm w-full outline-none placeholder-gray-500"
+        defaultValue=""
+      >
+        <option value="" disabled>Select Ethnicity</option>
+        <option value="asian">Asian</option>
+        <option value="black">Black</option>
+        <option value="hispanic">Hispanic</option>
+        <option value="white">White</option>
+        <option value="other">Other</option>
+      </select>
+    </div>
 
       {/* Education and Occupation */}
       <div className="mb-6">
@@ -267,6 +327,7 @@ export default function Form() {
           <option value="" disabled>Marital status</option>
           <option value="single">Single</option>
           <option value="married">Married</option>
+          <option value="married">Widowed</option>
         </select>
       </div>
 
@@ -299,21 +360,96 @@ export default function Form() {
         </div>
       </div>
 
-      {/* Drugs */}
-      <div className="mb-6">
-        <label htmlFor="drugs" className="block text-sm font-medium mb-2 text-gray-600">
-          <FaPills className="inline-block mr-2 text-gray-400" />Drugs
+      {/* Habit */}
+      <div className="flex flex-col">
+        <label htmlFor="habit" className="block text-sm font-medium mb-2 text-gray-600">
+            Habit
         </label>
-        <select
-          id="drugs"
-          name="drugs"
-          className="rounded-md border border-gray-300 py-2 px-4 text-sm outline-none placeholder-gray-500"
-          defaultValue=""
-        >
-          <option value="yes">Yes</option>
-          <option value="no">No</option>
-        </select>
+
+        <div className="grid grid-cols-3 gap-4">
+          {/* Drugs */}
+          <div className="flex flex-col mb-6">
+            <div className="flex items-center">
+              <input
+                id="drugs"
+                name="drugs"
+                type="checkbox"
+                value="yes"
+                className="mr-2"
+              />
+              <span className="text-sm font-medium text-gray-600"><FaPills className="inline-block mr-2 text-blue-500" />Use Drugs</span>
+            </div>
+          </div>
+
+          {/* Alcohol */}
+          <div className="flex flex-col mb-6">
+            <div className="flex items-center">
+              <input
+                id="alcohol"
+                name="alcohol"
+                type="checkbox"
+                value="yes"
+                className="mr-2"
+              />
+              <span className="text-sm font-medium text-gray-600"><BiSolidDrink className="inline-block mr-2 text-blue-500" />Alcohol</span>
+            </div>
+          </div>
+
+          {/* Smoking */}
+          <div className="flex flex-col mb-6">
+            <div className="flex items-center">
+              <input
+                id="smoking"
+                name="smoking"
+                type="checkbox"
+                value="yes"
+                className="mr-2"
+              />
+              <span className="text-sm font-medium text-gray-600"><FaSmoking className="inline-block mr-2 text-blue-500" />Smoking</span>
+            </div>
+          </div>
+        </div>
       </div>
+
+
+      {/* Habit */}
+      <div className="flex flex-col">
+        <label htmlFor="pets" className="block text-sm font-medium mb-2 text-gray-600">
+            <MdPets className="inline-block mr-2 text-gray-400" />Pets
+        </label>
+
+        <div className="grid grid-cols-3 gap-4">
+          {/* Dog */}
+          <div className="flex flex-col mb-6">
+            <div className="flex items-center">
+              <input
+                id="dog"
+                name="dog"
+                type="checkbox"
+                value="yes"
+                className="mr-2"
+              />
+              <span className="text-sm font-medium text-gray-600"><FaDog className="inline-block mr-2 text-blue-500" />Dog</span>
+            </div>
+          </div>
+
+          {/* Cat */}
+          <div className="flex flex-col mb-6">
+            <div className="flex items-center">
+              <input
+                id="cat"
+                name="cat"
+                type="checkbox"
+                value="yes"
+                className="mr-2"
+              />
+              <span className="text-sm font-medium text-gray-600"><FaCat className="inline-block mr-2 text-blue-500" />Cat</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
 
       {/* Submit Button */}
       <div className="text-center">

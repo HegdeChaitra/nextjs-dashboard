@@ -25,6 +25,9 @@ const CustFormSchema = z.object({
   email: z.string().default(""),
   phone: z.string(),
   age: z.coerce.number(),
+  gender: z.string(),
+  dating_interest: z.string(),
+  ethnicity: z.string(),
 
   company_name: z.string().trim().default(""), // Optional field
   position: z.string(),
@@ -50,6 +53,10 @@ const CustFormSchema = z.object({
   wantKids: z.string().default(""), // Optional field
 
   drugs: z.string().default(""), // Optional field
+  alcohol: z.string(),
+  smoking: z.string(),
+  dog: z.string(),
+  cat: z.string(),
 });
 
 
@@ -77,12 +84,14 @@ export async function createCustomer(formData: FormData) {
       email : formData.get('email'),
       phone: formData.get('phone'),
       age : formData.get('age'),
+      gender: formData.get('gender'),
+      dating_interest: formData.get('dating_interest'),
+      ethnicity: formData.get('ethnicity'),
       company_name : formData.get('company_name'),
       position: formData.get('position'),
       education_level : formData.get('education_level'),
       school: formData.get('school'),
       income_level: formData.get('income_level'),
-//       location : formData.get('location'),
       city: formData.get('city'),
       state: formData.get('state'),
       feet : formData.get('feet'),
@@ -93,6 +102,10 @@ export async function createCustomer(formData: FormData) {
       haveKids : formData.get('haveKids'),
       wantKids : formData.get('wantKids'),
       drugs : formData.get('drugs'),
+      alcohol: formData.get('alcohol'),
+      smoking: formData.get('smoking'),
+      dog: formData.get('dog'),
+      cat: formData.get('cat')
   });
 
 //   console.log('form dataw');
@@ -104,14 +117,14 @@ export async function createCustomer(formData: FormData) {
       message: 'Missing Fields. Failed to Create Invoice.',
     };
   }
-  const { first_name, last_name, email, phone, age, company_name, position, education_level, school, income_level, city, state, feet, inches, politics, religion, maritalStatus, haveKids, wantKids, drugs } = validatedFields.data;
+  const { first_name, last_name, email, phone, age, gender, dating_interest, ethnicity, company_name, position, education_level, school, income_level, city, state, feet, inches, politics, religion, maritalStatus, haveKids, wantKids, drugs, alcohol, smoking, dog, cat } = validatedFields.data;
 //   console.log('form data');
 //   console.log(validatedFields.data)
 
   try{
       await sql`
-        INSERT INTO person (first_name, last_name, email, phone, age, company_name, position, education_level, school, income_level, city, state, height_feet, height_inches, politics, religion, marital_status, have_kids, want_kids, drugs)
-        VALUES (${first_name}, ${last_name}, ${email}, ${phone}, ${age}, ${company_name}, ${position}, ${education_level}, ${school}, ${income_level}, ${city}, ${state}, ${feet}, ${inches}, ${politics}, ${religion}, ${maritalStatus}, ${haveKids}, ${wantKids}, ${drugs})
+        INSERT INTO person (first_name, last_name, email, phone, age, gender, dating_interest, ethnicity, company_name, position, education_level, school, income_level, city, state, height_feet, height_inches, politics, religion, marital_status, have_kids, want_kids, drugs, alcohol, smoking, dog, cat)
+        VALUES (${first_name}, ${last_name}, ${email}, ${phone}, ${age}, ${gender}, ${dating_interest}, ${ethnicity}, ${company_name}, ${position}, ${education_level}, ${school}, ${income_level}, ${city}, ${state}, ${feet}, ${inches}, ${politics}, ${religion}, ${maritalStatus}, ${haveKids}, ${wantKids}, ${drugs}, ${alcohol}, ${smoking}, ${dog}, ${cat})
       `;
   } catch (error) {
       return {

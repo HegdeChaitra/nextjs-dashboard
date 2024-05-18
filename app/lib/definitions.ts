@@ -30,6 +30,9 @@ export type Profile = {
   email: string;
   phone: string;
   age: number;
+  gender: string;
+  dating_interest: string;
+  ethnicity: string;
   company_name: string;
   position: string;
   education_level: string;
@@ -45,6 +48,10 @@ export type Profile = {
   have_kids: string;
   want_kids: string;
   drugs: string;
+  alcohol: string;
+  smoking: string;
+  dog: string;
+  cat: string;
 };
 
 export type User = {

@@ -67,6 +67,9 @@ export async function fetchCustomer() {
         email,
         phone,
         age,
+        gender,
+        dating_interest,
+        ethnicity,
         company_name,
         position,
         education_level,
@@ -81,7 +84,11 @@ export async function fetchCustomer() {
         marital_status,
         have_kids,
         want_kids,
-        drugs
+        drugs,
+        alcohol,
+        smoking,
+        dog,
+        cat
       FROM person
       WHERE person.first_name ILIKE ${`%${query}%`}`;
 
