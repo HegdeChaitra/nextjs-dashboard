@@ -15,7 +15,7 @@ export default function Customer({ customer }: { customer: Profile }) {
           <p>{customer.about_me}</p>
         </div>
       </div>
-      
+
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         <div className="bg-blue-50 p-6 rounded-lg shadow-md">
           <h2 className="text-2xl font-bold mb-4 text-blue-800">Personal Information</h2>

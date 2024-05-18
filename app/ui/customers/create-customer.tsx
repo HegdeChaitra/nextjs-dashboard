@@ -460,7 +460,7 @@ export default function Form() {
           name="about_me"
           className="rounded-md border border-gray-300 py-2 px-4 text-sm w-full outline-none placeholder-gray-500"
           placeholder="Tell us about yourself..."
-          rows="4"
+          rows={4}
         ></textarea>
       </div>
 
