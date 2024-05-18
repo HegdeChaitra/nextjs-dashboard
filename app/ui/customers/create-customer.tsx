@@ -70,7 +70,7 @@ export default function Form() {
           name="age"
           type="number"
           placeholder="Age"
-          defaultValue="25"
+          defaultValue=""
           className="peer rounded-md border border-gray-300 py-2 px-4 text-sm w-full outline-none placeholder-gray-500"
         />
       </div>
