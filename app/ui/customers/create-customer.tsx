@@ -261,8 +261,8 @@ export default function Form() {
           <select
             id="feet"
             name="feet"
-            className="rounded-l-md border border-gray-300 py-2 px-4 text-sm outline-none placeholder-gray-500"
-            defaultValue="5"
+            className="rounded-l-md border border-gray-300 py-2 px-4 text-sm w-full outline-none placeholder-gray-500"
+            defaultValue=""
           >
             <option value="" disabled>Feet</option>
             <option value="4">4</option>
@@ -272,8 +272,8 @@ export default function Form() {
           <select
             id="inches"
             name="inches"
-            className="rounded-r-md border border-gray-300 py-2 px-4 text-sm outline-none placeholder-gray-500"
-            defaultValue="5"
+            className="rounded-r-md border border-gray-300 py-2 px-4 text-sm w-full outline-none placeholder-gray-500"
+            defaultValue=""
           >
             <option value="" disabled>Inches</option>
             <option value="0">0</option>
@@ -321,7 +321,7 @@ export default function Form() {
         <select
           id="marital"
           name="maritalStatus"
-          className="rounded-md border border-gray-300 py-2 px-4 text-sm outline-none placeholder-gray-500"
+          className="rounded-md border border-gray-300 py-2 px-4 text-sm w-full outline-none placeholder-gray-500"
           defaultValue=""
         >
           <option value="" disabled>Marital status</option>
