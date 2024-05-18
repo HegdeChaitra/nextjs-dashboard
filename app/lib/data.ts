@@ -88,7 +88,8 @@ export async function fetchCustomer() {
         alcohol,
         smoking,
         dog,
-        cat
+        cat,
+        about_me
       FROM person
       WHERE person.first_name ILIKE ${`%${query}%`}`;
 

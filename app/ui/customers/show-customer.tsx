@@ -8,6 +8,14 @@ export default function Customer({ customer }: { customer: Profile }) {
   return (
     <div className="max-w-4xl mx-auto p-6 bg-white shadow-lg rounded-lg mt-10">
       <h1 className="text-4xl font-extrabold mb-8 text-center text-blue-600">Customer Profile</h1>
+      {/* About Me */}
+      <div className="mb-8">
+        <h2 className="text-2xl font-bold mb-2 text-blue-800">About Me</h2>
+        <div className="bg-blue-50 p-4 rounded-lg shadow-md">
+          <p>{customer.about_me}</p>
+        </div>
+      </div>
+      
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         <div className="bg-blue-50 p-6 rounded-lg shadow-md">
           <h2 className="text-2xl font-bold mb-4 text-blue-800">Personal Information</h2>

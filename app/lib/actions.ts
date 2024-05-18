@@ -57,6 +57,7 @@ const CustFormSchema = z.object({
   smoking: z.string(),
   dog: z.string(),
   cat: z.string(),
+  about_me: z.string(),
 });
 
 
@@ -105,7 +106,8 @@ export async function createCustomer(formData: FormData) {
       alcohol: formData.get('alcohol'),
       smoking: formData.get('smoking'),
       dog: formData.get('dog'),
-      cat: formData.get('cat')
+      cat: formData.get('cat'),
+      about_me: formData.get('about_me')
   });
 
 //   console.log('form dataw');
@@ -117,14 +119,14 @@ export async function createCustomer(formData: FormData) {
       message: 'Missing Fields. Failed to Create Invoice.',
     };
   }
-  const { first_name, last_name, email, phone, age, gender, dating_interest, ethnicity, company_name, position, education_level, school, income_level, city, state, feet, inches, politics, religion, maritalStatus, haveKids, wantKids, drugs, alcohol, smoking, dog, cat } = validatedFields.data;
+  const { first_name, last_name, email, phone, age, gender, dating_interest, ethnicity, company_name, position, education_level, school, income_level, city, state, feet, inches, politics, religion, maritalStatus, haveKids, wantKids, drugs, alcohol, smoking, dog, cat, about_me } = validatedFields.data;
 //   console.log('form data');
 //   console.log(validatedFields.data)
 
   try{
       await sql`
-        INSERT INTO person (first_name, last_name, email, phone, age, gender, dating_interest, ethnicity, company_name, position, education_level, school, income_level, city, state, height_feet, height_inches, politics, religion, marital_status, have_kids, want_kids, drugs, alcohol, smoking, dog, cat)
-        VALUES (${first_name}, ${last_name}, ${email}, ${phone}, ${age}, ${gender}, ${dating_interest}, ${ethnicity}, ${company_name}, ${position}, ${education_level}, ${school}, ${income_level}, ${city}, ${state}, ${feet}, ${inches}, ${politics}, ${religion}, ${maritalStatus}, ${haveKids}, ${wantKids}, ${drugs}, ${alcohol}, ${smoking}, ${dog}, ${cat})
+        INSERT INTO person (first_name, last_name, email, phone, age, gender, dating_interest, ethnicity, company_name, position, education_level, school, income_level, city, state, height_feet, height_inches, politics, religion, marital_status, have_kids, want_kids, drugs, alcohol, smoking, dog, cat, about_me)
+        VALUES (${first_name}, ${last_name}, ${email}, ${phone}, ${age}, ${gender}, ${dating_interest}, ${ethnicity}, ${company_name}, ${position}, ${education_level}, ${school}, ${income_level}, ${city}, ${state}, ${feet}, ${inches}, ${politics}, ${religion}, ${maritalStatus}, ${haveKids}, ${wantKids}, ${drugs}, ${alcohol}, ${smoking}, ${dog}, ${cat}, ${about_me})
       `;
   } catch (error) {
       return {

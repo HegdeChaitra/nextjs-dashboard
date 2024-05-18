@@ -52,6 +52,7 @@ export type Profile = {
   smoking: string;
   dog: string;
   cat: string;
+  about_me: string;
 };
 
 export type User = {

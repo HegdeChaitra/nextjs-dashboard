@@ -450,6 +450,19 @@ export default function Form() {
         </div>
       </div>
 
+      {/* About Me */}
+      <div className="mb-6">
+        <label htmlFor="about-me" className="block text-sm font-medium mb-2 text-gray-600">
+          About Me
+        </label>
+        <textarea
+          id="about-me"
+          name="about_me"
+          className="rounded-md border border-gray-300 py-2 px-4 text-sm w-full outline-none placeholder-gray-500"
+          placeholder="Tell us about yourself..."
+          rows="4"
+        ></textarea>
+      </div>
 
       {/* Submit Button */}
       <div className="text-center">
