@@ -376,6 +376,7 @@ export default function Form() {
                 type="checkbox"
                 value="yes"
                 className="mr-2"
+                defaultValue="no"
               />
               <span className="text-sm font-medium text-gray-600"><FaPills className="inline-block mr-2 text-blue-500" />Use Drugs</span>
             </div>
@@ -390,6 +391,7 @@ export default function Form() {
                 type="checkbox"
                 value="yes"
                 className="mr-2"
+                defaultValue="no"
               />
               <span className="text-sm font-medium text-gray-600"><BiSolidDrink className="inline-block mr-2 text-blue-500" />Alcohol</span>
             </div>
@@ -404,6 +406,7 @@ export default function Form() {
                 type="checkbox"
                 value="yes"
                 className="mr-2"
+                defaultValue="no"
               />
               <span className="text-sm font-medium text-gray-600"><FaSmoking className="inline-block mr-2 text-blue-500" />Smoking</span>
             </div>
@@ -428,6 +431,7 @@ export default function Form() {
                 type="checkbox"
                 value="yes"
                 className="mr-2"
+                defaultValue="no"
               />
               <span className="text-sm font-medium text-gray-600"><FaDog className="inline-block mr-2 text-blue-500" />Dog</span>
             </div>
@@ -442,6 +446,7 @@ export default function Form() {
                 type="checkbox"
                 value="yes"
                 className="mr-2"
+                defaultValue="no"
               />
               <span className="text-sm font-medium text-gray-600"><FaCat className="inline-block mr-2 text-blue-500" />Cat</span>
             </div>

@@ -52,11 +52,11 @@ const CustFormSchema = z.object({
   haveKids: z.string().default(""), // Optional field
   wantKids: z.string().default(""), // Optional field
 
-  drugs: z.string().default(""), // Optional field
-  alcohol: z.string(),
-  smoking: z.string(),
-  dog: z.string(),
-  cat: z.string(),
+  drugs: z.string().default("no"), // Optional field
+  alcohol: z.string().default("no"),
+  smoking: z.string().default("no"),
+  dog: z.string().default("no"),
+  cat: z.string().default("no"),
   about_me: z.string(),
 });
 
