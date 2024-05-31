@@ -379,6 +379,7 @@ export default function Form() {
                 defaultValue="no"
               />
               <span className="text-sm font-medium text-gray-600"><FaPills className="inline-block mr-2 text-blue-500" />Use Drugs</span>
+              <input type="hidden" id="drugs-hidden" name="drugs" value="no" />
             </div>
           </div>
 
@@ -394,6 +395,7 @@ export default function Form() {
                 defaultValue="no"
               />
               <span className="text-sm font-medium text-gray-600"><BiSolidDrink className="inline-block mr-2 text-blue-500" />Alcohol</span>
+              <input type="hidden" id="alcohol-hidden" name="alcohol" value="no" />
             </div>
           </div>
 
@@ -409,11 +411,11 @@ export default function Form() {
                 defaultValue="no"
               />
               <span className="text-sm font-medium text-gray-600"><FaSmoking className="inline-block mr-2 text-blue-500" />Smoking</span>
+              <input type="hidden" id="smoking-hidden" name="smoking" value="no" />
             </div>
           </div>
         </div>
       </div>
-
 
       {/* Habit */}
       <div className="flex flex-col">
@@ -434,6 +436,7 @@ export default function Form() {
                 defaultValue="no"
               />
               <span className="text-sm font-medium text-gray-600"><FaDog className="inline-block mr-2 text-blue-500" />Dog</span>
+              <input type="hidden" id="dog-hidden" name="dog" value="no" />
             </div>
           </div>
 
@@ -446,9 +449,9 @@ export default function Form() {
                 type="checkbox"
                 value="yes"
                 className="mr-2"
-                defaultValue="no"
               />
               <span className="text-sm font-medium text-gray-600"><FaCat className="inline-block mr-2 text-blue-500" />Cat</span>
+              <input type="hidden" id="cat-hidden" name="cat" value="no" />
             </div>
           </div>
 

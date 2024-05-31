@@ -55,8 +55,8 @@ const CustFormSchema = z.object({
   drugs: z.string().default("no"), // Optional field
   alcohol: z.string().default("no"),
   smoking: z.string().default("no"),
-  dog: z.string().default("no"),
-  cat: z.string().default("no"),
+  dog: z.enum(['yes', 'no']),
+  cat: z.enum(['yes', 'no']),
   about_me: z.string(),
 });
 
@@ -109,9 +109,6 @@ export async function createCustomer(formData: FormData) {
       cat: formData.get('cat'),
       about_me: formData.get('about_me')
   });
-
-//   console.log('form dataw');
-//   console.log(validatedFields.data)
 
   if (!validatedFields.success) {
     return {
